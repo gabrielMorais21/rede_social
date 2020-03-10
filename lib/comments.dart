@@ -22,11 +22,23 @@ const comments({Key key, this.onSuccess}) : super(key: key);
     return ListView.builder(
     itemCount: this.onSuccess.comments.length,
     itemBuilder: (context, index){
-       return ListTile(title: Text(this.onSuccess.comments[index]['text']),);
-    },
+        return ListTile(
+          title: Text(this.onSuccess.comments[index]['person']['name']),
+          subtitle: Text(this.onSuccess.comments[index]['text']),
 
+          leading: Container(
+            height: 35.0, 
+            width: 35.0,
+            decoration: new BoxDecoration(
+              shape: BoxShape.circle,
+              image: new DecorationImage(
+                fit: BoxFit.fill,
+                image: new NetworkImage(this.onSuccess.comments[index]['person']['profilePhotoUri'])
+              )
+            )
+          ),
+        );
+    }
     );}
 }
-
-
 
