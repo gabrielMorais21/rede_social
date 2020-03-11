@@ -13,7 +13,13 @@ const comments({Key key, this.onSuccess}) : super(key: key);
   Widget build(BuildContext context) {
     
     return Scaffold(
-      appBar: AppBar(title: Text(this.onSuccess.postId.toString())),
+     
+      appBar: AppBar(
+
+        title: Text('Comentarios', style: TextStyle(color: Colors.white, fontFamily: 'Schyler')),
+        backgroundColor: Colors.black, 
+        	
+        ),
       body: listComments(),
     );
   }

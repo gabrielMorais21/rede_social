@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'RobotoMono'),
       debugShowCheckedModeBanner: false,
       title: "Rede Social",
       home: BuildListView(),
@@ -50,9 +51,10 @@ class _BuildListViewState extends State<BuildListView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        backgroundColor: Colors.white,
-        
-        title: Text("Rede Social"),),
+        backgroundColor: Colors.black,
+        title: Text('Rede Social', style: TextStyle(color: Colors.white, fontFamily: 'Schyler')),
+
+        ),
         
         body: listUser(),
     );
@@ -63,8 +65,10 @@ class _BuildListViewState extends State<BuildListView> {
     itemCount: users.length,
     itemBuilder: (context, index){
       return new Padding(
+        
         padding: new EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         child: new Card(
+        
           elevation: 6.0,
           shape: new RoundedRectangleBorder(
             borderRadius: new BorderRadius.circular(16.0),
@@ -75,7 +79,9 @@ class _BuildListViewState extends State<BuildListView> {
           
             children: <Widget>[
               new Padding(
+              
                 padding:
+                
                   new  EdgeInsets.all(10.0),
                   child: new Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -99,8 +105,7 @@ class _BuildListViewState extends State<BuildListView> {
                       new Text('   '),
                       new Text(
                       users[index].person['name'],
-                      style: TextStyle(fontSize: 18.0),
-
+                      style: TextStyle(fontSize: 18.0, fontFamily: 'Raleway'),
                       ),
                     
                         ],
@@ -139,10 +144,10 @@ class _BuildListViewState extends State<BuildListView> {
                                 builder:(context) => comments(onSuccess: users[index],)));
                      
                           },
-                          color: Colors.white,
-                          
                           child:Text("${users[index].comments.length.toString()} comentarios"), 
-                                     
+                          color:Colors.white,
+                          textColor: Colors.black,
+                          
                           )
                         ],
                       ),
